@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-    dd('home');
+    return redirect('posts');
 });
 
 Route::auth();

@@ -18,7 +18,8 @@ class ProfileController extends Controller
 
     public function update(\App\Http\Requests\StoreProfileRequest $request)
     {
-        User::find(\Auth::user()->id)->save($request->all());
-        redirect('/profile/edit');
+        $user_id = Auth::user()->id;
+    	$data = array_filter($request->all());
+        User::find($user_id)->save($data);
     }
 }
