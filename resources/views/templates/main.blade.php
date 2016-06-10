@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>@yield('title')</title>
-    @yield('css')
-  </head>
-  <body>
-    <div class="container-fluid">
-      @yield('header')
+<head>
+   <title>@yield('title')</title>
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/template.css') }}">
+   @yield('css')
+</head>
+<body>
+   <div class="container-fluid">
       @yield('content')
-      @yield('js')
-    </div>
-  </body>
+   </div>
+</body>
+<script src="{{ asset('js/jquery-2.0.0.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/scripts.js') }}"></script>
+@yield('js')
+</body>
 </html>
