@@ -5,3 +5,4 @@ bootstrap/cache/
 .env.*.php
 .env.php
 .env
+storage/framework/
