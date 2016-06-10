@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,9 +11,22 @@
 */
 
 Route::get('/', function () {
-    return view('templates.main');
+    return redirect('posts');
 });
+
+Route::resource('/profile', 'UserController');
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('/editprofile', [
+	'middleware' => 'auth',
+    'uses' => 'ProfileController@editprofile']
+);
+
+Route::resource('posts', 'PostController');
+
+Route::resource('posts.comments', 'CommentController', [
+    'parameters' => 'singular'
+]);

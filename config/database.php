@@ -60,7 +60,7 @@ return [
             'username' => env('DB_USERNAME', 'tester'),
             'password' => env('DB_PASSWORD', 'tester'),
             'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'collation' => 'utf8_general_ci',
             'prefix' => '',
             'strict' => false,
             'engine' => null,
