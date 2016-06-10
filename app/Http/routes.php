@@ -30,8 +30,12 @@ Route::post('/profile/edit', [
     ]
 );
 
+Route::put('posts/{id}/like', 'PostController@like');
+Route::put('posts/{id}/unlike', 'PostController@unlike');
+
 Route::resource('posts', 'PostController');
 
 Route::resource('posts.comments', 'CommentController', [
     'parameters' => 'singular'
 ]);
+

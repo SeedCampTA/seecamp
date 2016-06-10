@@ -1,0 +1,25 @@
+#profile {
+	margin-right: 10px;
+	color: #fff;
+}
+
+#seedcamp-nav {
+	background-color: #ff5800;
+}
+
+#seedcamp-header {
+	color: #fff;
+}
+
+.navbar-right {
+    margin-right: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+.btn-seedcamp {
+    background: #ff5800;
+    color: #fff;
+}

@@ -21,7 +21,7 @@ class PostController extends Controller
         $post = Post::with(['comments' => function ($query) {
             $query->orderBy('updated_at', 'desc');
         }])->orderBy('updated_at', 'desc')->take(20)->get();
-        return view('post.newfeeds', ['posts' => $post]);
+        return view('post.newsfeed', ['posts' => $post]);
     }
 
     /**
@@ -88,5 +88,19 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function like($id)
+    {
+        $post = Post::find($id);
+
+        $post->likeByUsers()->attach(Auth::User()->id);
+    }
+
+    public function unlike($id)
+    {
+        $post = Post::find($id);
+
+        $post->likeByUsers()->detach(Auth::User()->id);
     }
 }
