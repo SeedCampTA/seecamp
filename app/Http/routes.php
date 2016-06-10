@@ -39,3 +39,5 @@ Route::resource('posts.comments', 'CommentController', [
     'parameters' => 'singular'
 ]);
 
+Route::get('/like', 'HomeController@like');
+
