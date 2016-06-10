@@ -1,12 +1,11 @@
-// function postComment(form)
-// {
-//     console.log(form);
-//     event.preventDefault();
-// };
-
-$( document ).ready(function() {
-    $('.post-comment').submit(function(form) {
-        console.log(form);
-        event.preventDefault();
+function postComment(form)
+{
+    console.log(form);
+    $.ajax({
+        url: '/posts/{id}/comments',
+        data: {
+            coment: '',
+        },
+        method: 'POST',
     });
-});
+};
