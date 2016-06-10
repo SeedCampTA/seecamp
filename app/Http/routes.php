@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('/editprofile', [
+	'middleware' => 'auth',
+    'uses' => 'ProfileController@editprofile']
+);
