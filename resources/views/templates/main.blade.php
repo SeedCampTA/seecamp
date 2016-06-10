@@ -2,6 +2,7 @@
 <html>
 <head>
    <title>@yield('title')</title>
+   <meta content="{{ csrf_token() }}" name="csrf-param" />
    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
    @yield('css')
