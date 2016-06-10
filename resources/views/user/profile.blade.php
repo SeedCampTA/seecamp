@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('/css/editProfile.css') }}">
+@endsection
+
 @section('content')
 <div class="container">
   <div class="row">
@@ -12,9 +16,10 @@
         <div class="panel-body">
           <form class="form-horizontal" role="form" method="PUT" action="{{ url('/profile/edit') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
-
-            <div class="col-md-6">
-              <img src="data:image;base64,{{ $user->image }}" alt="profile picture">
+            <div class="row">
+              <div class="col-xs-12 profile-image-panel">
+                <img src="data:image/jpeg;base64,{{$user->image}}" alt="profile picture">
+              </div>
             </div>
 
             <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
@@ -61,7 +66,7 @@
 
             <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-primary btn-seedcamp">
+                <button type="submit" class="btn btn-primary btn-seedcamp btn-block">
                   <i class="fa fa-btn fa-user"></i> Update
                 </button>
               </div>
