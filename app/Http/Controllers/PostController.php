@@ -18,10 +18,26 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::with(['comments' => function ($query) {
+        $posts = Post::with(['comments' => function ($query) {
             $query->orderBy('updated_at', 'desc');
         }])->orderBy('updated_at', 'desc')->take(20)->get();
-        return view('post.newfeeds', ['posts' => $post]);
+
+        $user_id = Auth::User()->id;
+        foreach ($posts as $post) {
+            if ($post->likeByUsers) {
+                foreach ($post->likeByUsers as $user) {
+                    if ($user->id == $user_id) {
+                        $post->likeable = false;
+                        break;
+                    }
+                }
+            }
+            if (!isset($post->likeable)) {
+                $post->likeable = true;
+            }
+        }
+
+        return view('post.newsfeed', ['posts' => $posts]);
     }
 
     /**
@@ -42,7 +58,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        Auth::User()->posts()->create($request->all());
+        $post = Auth::User()->posts()->create($request->all());
+
+        return response()->json($post, 201);
     }
 
     /**
@@ -95,6 +113,8 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->likeByUsers()->attach(Auth::User()->id);
+
+        return response()->json(1);
     }
 
     public function unlike($id)
@@ -102,5 +122,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->likeByUsers()->detach(Auth::User()->id);
+
+        return response()->json(1);
     }
 }
