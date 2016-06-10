@@ -12,6 +12,8 @@ class ProfileController extends Controller
 {
     protected function editprofile(StoreProfileRequest $request)
     {
-        User::find(Auth::user()->id)->save($request->all());
+    	$user_id = Auth::user()->id;
+    	$data = array_filter($request->all());
+        User::find($user_id)->save($data);
     }
 }
