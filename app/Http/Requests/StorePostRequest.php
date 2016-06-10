@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Auth;
 
 class StorePostRequest extends Request
 {
@@ -13,7 +14,7 @@ class StorePostRequest extends Request
      */
     public function authorize()
     {
-        return !Auth::check();
+        return Auth::check();
     }
 
     /**
