@@ -49,12 +49,11 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email' => 'required|email|max:255|unique:users',
             'username' => 'required|min:6|max:10|unique:users,username',
             'password' => 'required|min:6|confirmed',
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
-            'image' => 'required|image:jpg,jpeg,png,gif,bmp|size:4000',
+            'image' => 'required|image|max:4000',
         ]);
     }
 
