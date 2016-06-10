@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-    dd('home');
+    redirect('posts');
 });
 
 Route::resource('/profile', 'UserController');
