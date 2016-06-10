@@ -5,8 +5,10 @@
     @yield('css')
   </head>
   <body>
-    @yield('header')
-    @yield('content')
-    @yield('js')
+    <div class="container-fluid">
+      @yield('header')
+      @yield('content')
+      @yield('js')
+    </div>
   </body>
 </html>
