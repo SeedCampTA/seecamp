@@ -19,7 +19,22 @@
   color: #fff;
 }
 
-.btn-seedcamp {
+.btn-seedcamp,
+.ben-seedcamp:active {
     background: #ff5800;
     color: #fff;
+    border: none;
 }
+
+.btn-seedcamp:hover {
+    background: #ff4A02;
+    color: #fff;
+    border: none;
+}
+
+
+
+
+
+
+
