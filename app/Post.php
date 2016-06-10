@@ -8,7 +8,7 @@ class Post extends Model
 {
 	protected $guarded = ['id', 'user_id'];
 
-	protected $with = ['user'];
+	protected $with = ['user', 'likeByUsers'];
 
 	public function comments()
     {
