@@ -89,4 +89,18 @@ class PostController extends Controller
     {
         //
     }
+
+    public function like($id)
+    {
+        $post = Post::find($id);
+
+        $post->likeByUsers()->attach(Auth::User()->id);
+    }
+
+    public function unlike($id)
+    {
+        $post = Post::find($id);
+
+        $post->likeByUsers()->detach(Auth::User()->id);
+    }
 }
