@@ -18,8 +18,12 @@ class ProfileController extends Controller
 
     public function update(\App\Http\Requests\StoreProfileRequest $request)
     {
-        $user_id = Auth::user()->id;
-    	$data = array_filter($request->all());
-        User::find($user_id)->save($data);
+        $data = array_filter($request->all());
+        $user = \Auth::user()->update($data);
+
+        $updateMsg = 'Update profile completed';
+
+        return redirect('/profile/edit')
+            ->with('updateMsg', $updateMsg);
     }
 }
