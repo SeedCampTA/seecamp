@@ -19,6 +19,8 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::resource('posts', 'PostController');
+
 Route::resource('posts.comments', 'CommentController', [
     'parameters' => 'singular'
 ]);
