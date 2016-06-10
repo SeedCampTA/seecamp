@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Post;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::with(['comments' => function ($query) {
-            $query->orderBy('updated_at', 'desc');
-        }])->orderBy('updated_at', 'desc')->take(20)->get();
-        return view('post.newfeeds', ['posts' => $post];
+
     }
 
     /**
@@ -38,9 +34,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $post)
     {
-        Auth::User()->posts()->create($request->all());
+        $postModel = App\Post::find($post);
+        $input = array_merge(['id' => $Auth::user()->id], $request->all());
+        $comment = $postModel->comments()->create($input);
     }
 
     /**
