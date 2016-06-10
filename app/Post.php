@@ -8,7 +8,7 @@ class Post extends Model
 {
 	protected $guarded = ['id', 'user_id'];
 
-	protected $with = ['user'];
+	protected $with = ['user', 'likeByUsers'];
 
 	public function comments()
     {
@@ -18,5 +18,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function likeByUsers()
+    {
+        return $this->belongsToMany('App\User', 'likes');
     }
 }

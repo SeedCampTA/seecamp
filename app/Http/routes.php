@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -19,13 +18,24 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::post('/editprofile', [
-	'middleware' => 'auth',
-    'uses' => 'ProfileController@editprofile']
+Route::get('/profile/edit', [
+    'middleware' => 'auth',
+    'uses' => 'ProfileController@edit',
+    ]
 );
+
+Route::post('/profile/edit', [
+    'middleware' => 'auth',
+    'uses' => 'ProfileController@update',
+    ]
+);
+
+Route::put('posts/{id}/like', 'PostController@like');
+Route::put('posts/{id}/unlike', 'PostController@unlike');
 
 Route::resource('posts', 'PostController');
 
 Route::resource('posts.comments', 'CommentController', [
     'parameters' => 'singular'
 ]);
+
