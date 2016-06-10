@@ -21,8 +21,9 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::post('/editprofile', [
-	'middleware' => 'auth',
-    'uses' => 'ProfileController@editprofile']
+    'middleware' => 'auth',
+    'uses' => 'ProfileController@editprofile',
+    ]
 );
 
 Route::resource('posts', 'PostController');
