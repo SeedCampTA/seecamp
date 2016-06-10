@@ -9,10 +9,12 @@ function like() {
         }
     });
     $.ajax({
-        url: '{{ url('/posts/1/unlike') }}',
+        url: '{{ url('/posts/1/like') }}',
         type: 'PUT',
         success: function(result) {
-            alert(result);
+            if (result != 1) {
+                alert('Error!');
+            }
         }
     });
 }
