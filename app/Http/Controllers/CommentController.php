@@ -40,7 +40,7 @@ class CommentController extends Controller
     public function store(StoreCommentRequest $request, $post)
     {
         $postModel = Post::find($post);
-        $input = array_merge(['id' => Auth::user()->id], $request->all());
+        $input = array_merge(['user_id' => Auth::user()->id], $request->all());
         $comment = $postModel->comments()->create($input);
     }
 
