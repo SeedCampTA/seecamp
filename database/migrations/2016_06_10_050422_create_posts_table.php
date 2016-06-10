@@ -16,10 +16,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('msg', 200)->nullable();
             $table->binary('image')->nullable();
-            $table->foreign('user_id')
-                  ->references('id')->on('users')
-                  ->onDelete('cascade');
-                  ->onUpdate('cascade');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
