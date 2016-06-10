@@ -17,6 +17,6 @@ function like() {
     });
 }
 </script>
-<button onclick="like();return false;">Like</button>
+<button onclick="like();return false;">Like!</button>
 @endsection
 @section('js')
