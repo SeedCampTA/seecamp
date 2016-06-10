@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/posts';
 
     protected $username = 'username';
 
@@ -55,7 +55,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
-            'image' => 'required|image|max:4000',
+            'image' => 'required|image:jpg,jpeg,png,gif,bmp|size:4000',
         ]);
     }
 
