@@ -29,7 +29,6 @@ class HomeController extends Controller
 
     public function like()
     {
-        echo 'testrrr';
-        return;
+        return view('like');
     }
 }
