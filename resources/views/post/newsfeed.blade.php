@@ -29,7 +29,7 @@
             <h4>{{ $post->user->username }}</h4>
             <div class="col-xs-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img src="..." alt="...">
+                  <img src="" alt="">
                 </a>
             </div>
         </div>
@@ -43,8 +43,8 @@
                 </div>
             </div>
             <hr>
-            <form>
-                <p>45 Likes</p>
+            <p>45 Likes</p>
+                <form class="post-comment">
                 <div class="input-group">
                     <div class="input-group-btn">
                         <button class="btn btn-default">+1</button>
@@ -54,7 +54,8 @@
                     </div>
                     <input type="text" class="form-control" placeholder="Add a comment..">
                 </div>
-            </form>
+                </form>
+
             <div class="divider"></div>
             <ul class="list-group">
                 {{-- @foreach ($comments as $comment)
