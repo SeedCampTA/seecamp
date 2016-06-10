@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/profile/edit', 'ProfileController@edit');
-	Route::put('/profile', 'ProfileController@update');
+	Route::put('/profile/edit', 'ProfileController@update');
 
 	Route::put('/posts/{id}/like', 'PostController@like');
 	Route::put('/posts/{id}/unlike', 'PostController@unlike');

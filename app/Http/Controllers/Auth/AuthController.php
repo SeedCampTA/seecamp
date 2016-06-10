@@ -56,7 +56,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
-            'image' => 'required|image:jpg,jpeg,png,gif,bmp|size:4000',
+            'image' => 'required|image:jpg,jpeg,png|max:4000',
         ]);
     }
 
