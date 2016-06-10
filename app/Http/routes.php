@@ -11,33 +11,26 @@
 */
 
 Route::get('/', function () {
-    return redirect('posts');
+    return redirect('/posts');
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/profile/edit', [
-    'middleware' => 'auth',
-    'uses' => 'ProfileController@edit',
-    ]
-);
+Route::group(['middleware' => 'auth'], function () {
 
-Route::post('/profile/edit', [
-    'middleware' => 'auth',
-    'uses' => 'ProfileController@update',
-    ]
-);
+	Route::get('/profile/edit', 'ProfileController@edit');
+	Route::put('/profile', 'ProfileController@update');
 
-Route::put('posts/{id}/like', 'PostController@like');
-Route::put('posts/{id}/unlike', 'PostController@unlike');
+	Route::put('/posts/{id}/like', 'PostController@like');
+	Route::put('/posts/{id}/unlike', 'PostController@unlike');
+	Route::resource('posts', 'PostController');
 
-Route::resource('posts', 'PostController');
-
-Route::resource('posts.comments', 'CommentController', [
-    'parameters' => 'singular'
-]);
-
-Route::get('/like', 'HomeController@like');
+	Route::resource('posts.comments', 'CommentController', [
+	    'parameters' => 'singular'
+	]);
+	
+	Route::get('/like', 'HomeController@like');
+}
 
