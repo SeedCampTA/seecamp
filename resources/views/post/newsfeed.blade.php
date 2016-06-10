@@ -57,9 +57,10 @@
                         @endif
                         <button type="submit" class="btn btn-default" onclick="postComment(this)">
                             <i class="glyphicon glyphicon-comment"></i>
+                            <input type="text" class="form-control" placeholder="Add a comment..">
                         </button>
                     </div>
-                    <input type="text" class="form-control" placeholder="Add a comment..">
+                    
                 </div>
             <div class="divider"></div>
             <ul class="list-group">
