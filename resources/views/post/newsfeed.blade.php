@@ -44,24 +44,25 @@
             </div>
             <hr>
             <p>45 Likes</p>
-                <div class="input-group">
-                    <div class="input-group-btn">
-                        @if ($post->likeable)
-                            <button class="btn btn-default">
-                                +1
+                <form>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            @if ($post->likeable)
+                                <button class="btn btn-default">
+                                    +1
+                                </button>
+                            @else
+                                <button class="btn btn-default">
+                                    -1
+                                </button>
+                            @endif
+                            <button type="submit" class="btn btn-default" onclick="postComment(this)">
+                                <i class="glyphicon glyphicon-comment"></i>
                             </button>
-                        @else
-                            <button class="btn btn-default">
-                                -1
-                            </button>
-                        @endif
-                        <button type="submit" class="btn btn-default" onclick="postComment(this)">
-                            <i class="glyphicon glyphicon-comment"></i>
-                            <input type="text" class="form-control" placeholder="Add a comment..">
-                        </button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Add a comment..">
                     </div>
-                    
-                </div>
+                </form>
             <div class="divider"></div>
             <ul class="list-group">
                 {{-- @foreach ($comments as $comment)
