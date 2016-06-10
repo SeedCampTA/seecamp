@@ -10,8 +10,15 @@ use App\User;
 
 class ProfileController extends Controller
 {
-    protected function editprofile(StoreProfileRequest $request)
+
+    public function edit()
     {
-        User::find(Auth::user()->id)->save($request->all());
+        return view('user.profile')->with('user', \Auth::user());
+    }
+
+    public function update(\App\Http\Requests\StoreProfileRequest $request)
+    {
+        User::find(\Auth::user()->id)->save($request->all());
+        redirect('/profile/edit');
     }
 }

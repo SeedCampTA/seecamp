@@ -14,15 +14,19 @@ Route::get('/', function () {
     dd('home');
 });
 
-Route::resource('/profile', 'UserController');
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::post('/editprofile', [
+Route::get('/profile/edit', [
     'middleware' => 'auth',
-    'uses' => 'ProfileController@editprofile',
+    'uses' => 'ProfileController@edit',
+    ]
+);
+
+Route::post('/profile/edit', [
+    'middleware' => 'auth',
+    'uses' => 'ProfileController@update',
     ]
 );
 
