@@ -4,7 +4,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/post-comment.js') }}"></script>
+    <script src="{{ asset('js/comment-post.js') }}"></script>
 @endsection
 
 @section('content')
@@ -47,25 +47,27 @@
                 <div class="input-group">
                     <div class="input-group-btn">
                         @if ($post->likeable)
-                            <button class="btn btn-default">
+                            <button class="btn btn-default" onclick="likePost()">
                                 +1
                             </button>
                         @else
-                            <button class="btn btn-default">
+                            <button class="btn btn-default" onclick="unlikePost()">
                                 -1
                             </button>
                         @endif
-                        <button type="submit" class="btn btn-default">
+                        <button class="btn btn-default" onclick="commentPost({{ $post->id }})">
                             <i class="glyphicon glyphicon-comment"></i>
                         </button>
                     </div>
-                    <input type="text" class="form-control" placeholder="Add a comment..">
+                    {{ csrf_field() }}
+                    <input id="post-comment-{{ $post->id }}" type="text" class="form-control" placeholder="Add a comment..">
                 </div>
+                </form>
             <div class="divider"></div>
             <ul class="list-group">
-                {{-- @foreach ($comments as $comment)
-                    <li class="list-group-item">{{ $comment->message }}</li>
-                @endforeach --}}
+                @foreach ($post->comments as $comment)
+                    <li class="list-group-item">{{ $comment->comment }}</li>
+                @endforeach
             </ul>
         </div>
     </div>
