@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,8 +11,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    dd('home');
 });
+
+Route::resource('/profile', 'UserController');
 
 Route::auth();
 
