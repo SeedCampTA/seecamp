@@ -14,6 +14,13 @@ class AlterUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->binary('image');
+            $table->string('username')->unique();
+            $table->dropColumn('email');
+            $table->dropColumn('name');
+
         });
     }
 
