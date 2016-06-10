@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\User;
 
-class StoreProfileController extends Controller
+class ProfileController extends Controller
 {
     protected function editprofile(StoreSProfileRequest $request)
     {
