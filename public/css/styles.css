@@ -285,3 +285,7 @@ small.text-muted {
     padding-left:3px;
   }
 }
+
+.clear-padding {
+  padding: 0;
+}
