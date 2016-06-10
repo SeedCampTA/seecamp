@@ -24,7 +24,7 @@ Route::get('/profile/edit', [
     ]
 );
 
-Route::post('/profile/edit', [
+Route::put('/profile/edit', [
     'middleware' => 'auth',
     'uses' => 'ProfileController@update',
     ]
