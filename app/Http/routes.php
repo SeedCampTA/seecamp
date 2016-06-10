@@ -18,3 +18,7 @@
 Route::get('/', function () {
     return view('user.profile')->with('title', 'Register');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
