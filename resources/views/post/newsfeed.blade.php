@@ -4,6 +4,7 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/post-comment.js') }}"></script>
 @endsection
 
 @section('content')
@@ -22,32 +23,46 @@
             </ul>
         </form>
     </div>
-
-    <div class="panel panel-warning">
+    @foreach ($posts as $post)
+    <div class="panel panel-info">
         <div class="panel-heading">
-            <h4>Nutchalum Kitpongsai</h4>
+            <h4>{{ $post->user->username }}</h4>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                  <img src="..." alt="...">
+                </a>
+            </div>
         </div>
         <div class="panel-body">
             <div class="clearfix"></div>
-            <p>Your paragrah start here. asdnasd;asdkl</p>
+            <p>{{ $post->msg }}</p>
             <div class="panel-thumbnail">
-                <img src="/assets/example/bg_5.jpg" class="img-responsive">
+                <div class="img-responsive">
+                    <img class="img-responsive" src="http://www.bootply.com/assets/example/bg_5.jpg">
+                    {{ $post->image }}
+                </div>
             </div>
             <hr>
             <form>
-                 <p>45 Followers, 13 Posts</p>
+                <p>45 Likes</p>
                 <div class="input-group">
                     <div class="input-group-btn">
-
-                    <button class="btn btn-default">+1</button>
-                    <button class="btn btn-default">
-                        <i class="glyphicon glyphicon-share"></i>
-                    </button>
+                        <button class="btn btn-default">+1</button>
+                        <button type="submit" class="btn btn-default">
+                            <i class="glyphicon glyphicon-comment"></i>
+                        </button>
                     </div>
                     <input type="text" class="form-control" placeholder="Add a comment..">
                 </div>
             </form>
+            <div class="divider"></div>
+            <ul class="list-group">
+                {{-- @foreach ($comments as $comment)
+                    <li class="list-group-item">{{ $comment->message }}</li>
+                @endforeach --}}
+            </ul>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection
