@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,8 +15,6 @@ Route::get('/', function () {
     return redirect('posts');
 });
 
-Route::resource('/profile', 'UserController');
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -25,12 +24,8 @@ Route::post('/editprofile', [
     'uses' => 'ProfileController@editprofile']
 );
 
-Route::put('posts/{id}/like', 'PostController@like');
-Route::put('posts/{id}/unlike', 'PostController@unlike');
-
 Route::resource('posts', 'PostController');
 
 Route::resource('posts.comments', 'CommentController', [
     'parameters' => 'singular'
 ]);
-
