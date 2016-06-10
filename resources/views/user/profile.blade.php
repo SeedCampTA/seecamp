@@ -16,12 +16,12 @@
         <div class="panel-body">
           <form class="form-horizontal" role="form" method="PUT" action="{{ url('/profile/edit') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
+            <input type="hidden" name="_method" value="PUT">
             <div class="row">
               <div class="col-xs-12 profile-image-panel">
                 <img src="data:image/jpeg;base64,{{$user->image}}" alt="profile picture">
               </div>
             </div>
-
             <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
               <label for="firstname" class="col-md-4 control-label">First Name</label>
 
