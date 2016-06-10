@@ -59,7 +59,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $req = $request->all();
-        if (trim($req['image'])) {
+        if (!empty($req['image'])) {
             $req['image'] = base64_encode(file_get_contents($req['image']));
         }
         $data = array_filter($req);

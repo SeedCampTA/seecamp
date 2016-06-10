@@ -68,7 +68,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        if (trim($data['image'])) {
+        if (!empty($data['image'])) {
             $data['image'] = base64_encode(file_get_contents($data['image']));
         }
         return User::create([
