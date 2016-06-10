@@ -12,6 +12,6 @@ class ProfileController extends Controller
 {
     protected function editprofile(ProfileRequest $request)
     {
-        User::find($request->user()->id)->save($request);
+        User::find($request->user()->id)->save($request->all());
     }
 }
