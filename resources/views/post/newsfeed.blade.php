@@ -29,7 +29,7 @@
         <div class="panel-heading panel-feed">
             <div class="col-xs-1 clear-padding">
                 <a href="#" class="feed-profile">
-                  <img src="http://www.bootply.com/assets/example/bg_5.jpg" alt="" class="img-circle">
+                  <img src="data:image/jpeg;base64,{{ $post->user->image }}" alt="" class="img-circle">
                 </a>
             </div>
             <div class="col-xs-6 feed-username">
@@ -41,8 +41,7 @@
             <p>{{ $post->msg }}</p>
             <div class="panel-thumbnail">
                 <div class="img-responsive">
-                    <img class="img-responsive" src="http://www.bootply.com/assets/example/bg_5.jpg">
-                    {{ $post->image }}
+                    <img class="img-responsive" src="data:image/jpeg;base64,{{ $post->image }}">
                 </div>
             </div>
             <hr>
