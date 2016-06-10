@@ -33,4 +33,3 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	Route::get('/like', 'HomeController@like');
 }
-

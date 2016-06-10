@@ -73,7 +73,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
-            'image' => $data['image'],
+            'image' => base64_decode($data['image']),
         ]);
     }
 }

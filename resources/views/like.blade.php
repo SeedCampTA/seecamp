@@ -2,14 +2,14 @@
 
 @section('content')
 <script type="text/javascript">
-function like() {
+function like(post) {
     $.ajaxSetup({
         headers: {
-            'X-CSRF-Token': '{{ csrf_token() }}'
+            'X-CSRF-Token': 
         }
     });
     $.ajax({
-        url: '{{ url('/posts/1/like') }}',
+        url: '/posts/'+post+'/like',
         type: 'PUT',
         success: function(result) {
             if (result != 1) {
@@ -19,6 +19,7 @@ function like() {
     });
 }
 </script>
-<button onclick="like();return false;">Like!</button>
+<input type="hidden" name="csrf_token" value="">{{ csrf_token() }}'
+<button onclick="like(1);return false;">Like!</button>
 @endsection
 @section('js')
