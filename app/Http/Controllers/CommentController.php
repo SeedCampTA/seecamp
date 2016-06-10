@@ -42,6 +42,7 @@ class CommentController extends Controller
         $postModel = Post::find($post);
         $input = array_merge(['user_id' => Auth::user()->id], $request->all());
         $comment = $postModel->comments()->create($input);
+        return response()->json($comment, 201);
     }
 
     /**
