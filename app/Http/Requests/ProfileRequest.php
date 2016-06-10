@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use Auth;
 
-class StorePostRequest extends Request
+class ProfileRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class StorePostRequest extends Request
      */
     public function authorize()
     {
-        return Auth::check();
+        return false;
     }
 
     /**
@@ -25,8 +24,9 @@ class StorePostRequest extends Request
     public function rules()
     {
         return [
-            'msg'   => 'required_without:image|string',
-            'image' => 'required_without:msg|image',
+            'firstname' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'image' => 'image:jpg,jpeg,png,gif,bmp|max:4000',
         ];
     }
 }
