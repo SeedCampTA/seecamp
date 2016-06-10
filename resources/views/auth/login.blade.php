@@ -43,7 +43,7 @@
 
               <div class="form-group">
                   <div class="col-md-5 col-md-offset-4">
-                      <button type="submit" class="btn btn-primary btn-md btn-block">
+                      <button type="submit" class="btn btn-seedcamp btn-md btn-block">
                           <i class="fa fa-btn fa-sign-in"></i> Login
                       </button>
                   </div>

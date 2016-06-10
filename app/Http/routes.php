@@ -14,15 +14,20 @@ Route::get('/', function () {
     return redirect('posts');
 });
 
-Route::resource('/profile', 'UserController');
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::post('/editprofile', [
-	'middleware' => 'auth',
-    'uses' => 'ProfileController@editprofile']
+Route::get('/profile/edit', [
+    'middleware' => 'auth',
+    'uses' => 'ProfileController@edit',
+    ]
+);
+
+Route::post('/profile/edit', [
+    'middleware' => 'auth',
+    'uses' => 'ProfileController@update',
+    ]
 );
 
 Route::put('posts/{id}/like', 'PostController@like');
