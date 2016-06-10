@@ -9,7 +9,7 @@ function like() {
         }
     });
     $.ajax({
-        url: '{{ url('/posts/1/like') }}',
+        url: '{{ url('/posts/1/unlike') }}',
         type: 'PUT',
         success: function(result) {
             alert(result);
