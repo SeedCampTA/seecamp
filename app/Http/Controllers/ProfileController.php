@@ -10,7 +10,7 @@ use App\User;
 
 class ProfileController extends Controller
 {
-    protected function editprofile(StoreSProfileRequest $request)
+    protected function editprofile(StoreProfileRequest $request)
     {
         User::find(Auth::user()->id)->save($request->all());
     }
