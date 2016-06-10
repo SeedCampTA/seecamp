@@ -19,7 +19,7 @@ class ProfileController extends Controller
     public function update(\App\Http\Requests\StoreProfileRequest $request)
     {
         $req = $request->all();
-        if ($request->hasFile('image')) {
+        if (trim($req['image'])) {
             $req['image'] = base64_encode(file_get_contents($req['image']));
         }
         $data = array_filter($req);
