@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Post;
+use Auth;
+use App\Http\Requests\StoreCommentRequest;
 
 class CommentController extends Controller
 {
@@ -34,10 +37,10 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $post)
+    public function store(StoreCommentRequest $request, $post)
     {
-        $postModel = App\Post::find($post);
-        $input = array_merge(['id' => $Auth::user()->id], $request->all());
+        $postModel = Post::find($post);
+        $input = array_merge(['id' => Auth::user()->id], $request->all());
         $comment = $postModel->comments()->create($input);
     }
 
