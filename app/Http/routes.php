@@ -24,3 +24,8 @@ Route::resource('posts', 'PostController');
 Route::resource('posts.comments', 'CommentController', [
     'parameters' => 'singular'
 ]);
+
+
+Route::get('/test', function() {
+	return view('post.newsfeed');
+});
