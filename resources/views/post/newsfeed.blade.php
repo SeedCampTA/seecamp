@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="col-sm-5">
-    <div class="well">
+    <div class="well well-sm">
         <form class="form-horizontal" role="form">
             <h4>What's On Your Mind ?</h4>
             <div class="form-group" style="padding:14px;">
@@ -45,7 +45,7 @@
             <div class="clearfix"></div>
             <p>{{ $post->msg }}</p>
             <div class="panel-thumbnail">
-                <div class="img-responsive">
+                <div class="img-responsive center-block">
                     <img class="img-responsive" src="http://www.bootply.com/assets/example/bg_5.jpg">
                     {{ $post->image }}
                 </div>
@@ -73,7 +73,11 @@
             <div class="divider"></div>
             <ul class="list-group">
                 @foreach ($post->comments as $comment)
-                    <li class="list-group-item">{{ $comment->comment }}</li>
+                    <li class="list-group-item">
+                        <img src="//placehold.it/35x35" alt="" class="pull-left img-circle height="35" width="35"">
+                        <p>{{ $comment->comment }}</p>
+                        <small>{{ "10:28pm" }}</small>
+                    </li>
                 @endforeach
             </ul>
         </div>
