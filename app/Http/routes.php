@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -20,17 +21,17 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('/profile/edit', 'ProfileController@edit');
-	Route::put('/profile', 'ProfileController@update');
+    Route::get('/profile/edit', 'ProfileController@edit');
+	Route::put('/profile/edit', 'ProfileController@update');
 
-	Route::put('/posts/{id}/like', 'PostController@like');
-	Route::put('/posts/{id}/unlike', 'PostController@unlike');
-	Route::resource('posts', 'PostController');
+    Route::put('/posts/{id}/like', 'PostController@like');
+    Route::put('/posts/{id}/unlike', 'PostController@unlike');
+    Route::resource('posts', 'PostController');
 
-	Route::resource('posts.comments', 'CommentController', [
-	    'parameters' => 'singular'
-	]);
-	
-	Route::get('/like', 'HomeController@like');
+    Route::resource('posts.comments', 'CommentController', [
+        'parameters' => 'singular'
+    ]);
+
+    Route::get('/like', 'HomeController@like');
 });
 

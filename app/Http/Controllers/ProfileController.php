@@ -18,7 +18,11 @@ class ProfileController extends Controller
 
     public function update(\App\Http\Requests\StoreProfileRequest $request)
     {
-        $data = array_filter($request->all());
+        $req = $request->all();
+        if (!empty($req['image'])) {
+            $req['image'] = base64_encode(file_get_contents($req['image']));
+        }
+        $data = array_filter($req);
         $user = \Auth::user()->update($data);
 
         $updateMsg = 'Update profile completed';

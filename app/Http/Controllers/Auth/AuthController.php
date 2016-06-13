@@ -56,7 +56,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
-            'image' => 'required|image:jpg,jpeg,png,gif,bmp|size:4000',
+            'image' => 'required|image:jpg,jpeg,png|max:4000',
         ]);
     }
 
@@ -68,12 +68,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        if (!empty($data['image'])) {
+            $data['image'] = base64_encode(file_get_contents($data['image']));
+        }
         return User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
-            'image' => $data['image'],
+            'image' => base64_decode($data['image']),
         ]);
     }
 }

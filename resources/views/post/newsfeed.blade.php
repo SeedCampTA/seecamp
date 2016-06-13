@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/newsfeed.css') }}">
 @endsection
 
 @section('js')
@@ -25,12 +26,14 @@
     </div>
     @foreach ($posts as $post)
     <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4>{{ $post->user->username }}</h4>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                  <img src="" alt="">
+        <div class="panel-heading panel-feed">
+            <div class="col-xs-1 clear-padding">
+                <a href="#" class="feed-profile">
+                  <img src="http://www.bootply.com/assets/example/bg_5.jpg" alt="" class="img-circle">
                 </a>
+            </div>
+            <div class="col-xs-6 feed-username">
+            {{ $post->user->username }}
             </div>
         </div>
         <div class="panel-body">

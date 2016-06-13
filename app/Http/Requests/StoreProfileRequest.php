@@ -26,7 +26,7 @@ class StoreProfileRequest extends Request
         return [
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
-            'image' => 'image:jpg,jpeg,png,gif,bmp|max:4000',
+            'image' => 'image:jpg,jpeg,png|max:4000',
         ];
     }
 }
