@@ -28,8 +28,27 @@
 	margin-bottom: 20px;
 }
 .feed-username {
-	margin-top: 15px;
 	margin-left: 10px;
+}
+
+.date {
+	color: #90949c;
+	font-weight: normal;
+}
+
+.user {
+	color: #365899;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 12px;
+}
+
+.comment{
+
+}
+
+.user-profile-sm {
+	margin-right: 15px;
 }
 
 .action-post {

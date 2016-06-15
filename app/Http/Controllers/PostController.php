@@ -138,4 +138,13 @@ class PostController extends Controller
 
         return response()->json(1);
     }
+
+    public function getlike($id)
+    {
+        $post = Post::find($id);
+
+        $post_count = $post->likeByUsers()->count();
+
+        return  response()->json($post_count);
+    }
 }
