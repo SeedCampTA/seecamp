@@ -41,7 +41,7 @@
                 <div class="panel-heading panel-feed">
                     <div class="col-xs-1 clear-padding">
                         <a href="#" class="feed-profile">
-                          <img src="http://www.bootply.com/assets/example/bg_5.jpg" alt="" class="img-circle">
+                          <img src="{{ $post->user->image }}" alt="" class="img-circle">
                         </a>
                     </div>
 
