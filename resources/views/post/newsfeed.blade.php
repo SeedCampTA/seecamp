@@ -51,15 +51,15 @@
                 </div>
             </div>
             <hr>
-            <p>45 Likes</p>
+            <p>{{ $post->likeByUsers()->count() }} Likes</p>
             <div class="input-group">
                 <div class="input-group-btn">
                     @if ($post->likeable)
-                        <button class="btn btn-default" onclick="likePost()">
+                        <button class="btn btn-default" onclick="likePost({{ $post->id }})">
                             +1
                         </button>
                     @else
-                        <button class="btn btn-default" onclick="unlikePost()">
+                        <button class="btn btn-default" onclick="unlikePost({{ $post->id }})">
                             -1
                         </button>
                     @endif
