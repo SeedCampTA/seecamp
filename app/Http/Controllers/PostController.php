@@ -65,7 +65,7 @@ class PostController extends Controller
             $path = $request->file('image')->getRealPath();
             $mime_type = $request->file('image')->getClientMimeType();
             $destination_path = 'posts/' . $post->id . $mime_type;
-            Storage::put(
+            \Storage::put(
                 $destination_path,
                 file_get_contents($path)
             );

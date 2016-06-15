@@ -12,7 +12,7 @@
 <div class="col-sm-5">
     <div class="well well-sm">
         <form class="form-horizontal" role="form" action="{{ action('PostController@store') }}"  enctype="multipart/form-data" method="post">
-        {{-- csrf token --}}
+
         {{ csrf_field() }}
 
             <div class="form-group" style="padding:14px;">
@@ -22,6 +22,7 @@
                     <a href="">
                         <i class="glyphicon glyphicon-camera"></i>
                     </a>
+                    <input type="file" name="image" style="position:absolute;">
                 </div>
 
                 <div class="pull-right">
@@ -52,8 +53,8 @@
             <p>{{ $post->msg }}</p>
             <div class="panel-thumbnail">
                 <div class="img-responsive center-block">
-                    <img class="img-responsive" src="http://www.bootply.com/assets/example/bg_5.jpg">
-                    {{ $post->image }}
+                    <img class="img-responsive" src="data:image/jpeg;base64,{{ $post->image }}">
+                    
                 </div>
             </div>
             <hr>
