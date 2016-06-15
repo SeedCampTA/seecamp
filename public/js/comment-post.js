@@ -19,6 +19,12 @@ function commentPost(id)
     }
 };
 
+function commentPostEnter(id) {
+    if (event.keyCode == 13) {
+        commentPost(id);
+    }
+}
+
 function unlikePost(post_id)
 {
     csrf = $('meta[name="csrf-param"]').attr('content');
