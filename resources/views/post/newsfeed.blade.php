@@ -77,7 +77,7 @@
                             </button>
                         </div>
 
-                        <input id="comment-message-{{ $post->id }}" type="text" class="form-control" placeholder="Add a comment..">
+                        <input id="comment-message-{{ $post->id }}" type="text" class="form-control" placeholder="Add a comment.." onkeydown="commentPostEnter({{ $post->id }})">
                     </div>
                     <div class="divider"></div>
                     <ul class="list-group">
