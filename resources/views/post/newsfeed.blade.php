@@ -44,7 +44,8 @@
             </div>
 
             <div class="col-xs-6 feed-username">
-            {{ $post->user->username }}
+                <p class="text-left">{{ ucfirst($post->user->firstname) . ' ' . ucfirst($post->user->lastname) }}</p>
+                <small class="text-left date">{{ $post->updated_at->diffForHumans() }}</small>
             </div>
         </div>
 
@@ -81,9 +82,9 @@
             <ul class="list-group">
                 @foreach ($post->comments as $comment)
                     <li class="list-group-item">
-                        <img src="//placehold.it/35x35" alt="" class="pull-left img-circle height="35" width="35"">
-                        <p>{{ $comment->comment }}</p>
-                        <small>{{ "10:28pm" }}</small>
+                        <img class="user-profile-sm pull-left img-circle" src="//placehold.it/35x35" alt="" height="35" width="35"">
+                        <p class="user">{{ ucfirst($comment->user['firstname']) . ' ' . ucfirst($comment->user['lastname']) }} <small class="date">{{ $comment->updated_at->diffForHumans() }}</small></p>
+                        <div class="comment container-fluid">{{ $comment->comment }}</div>
                     </li>
                 @endforeach
             </ul>
