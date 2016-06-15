@@ -28,9 +28,12 @@
     </ul>
   @else
     <ul class="nav navbar-nav navbar-right">
+      <li>
+        <img id="user-profile-pic" class="user-profile-pic img-circle" src="data:image/jpeg;base64,{{ Auth::user()->image }}" alt="" height="35" width="35"">
+      </li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            {{ Auth::user()->username }} <span class="caret"></span>
+        <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            {{ ucfirst(Auth::user()->firstname) . ' ' . ucfirst(Auth::user()->lastname) }} <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
             <li><a href="{{ url('/profile/edit') }}"><i class="fa fa-btn"></i>Profile</a></li>
