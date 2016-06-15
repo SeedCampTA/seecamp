@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $posts = Post::with(['comments' => function ($query) {
             $query->orderBy('updated_at', 'desc');
-        }])->orderBy('updated_at', 'desc')->take(20)->get();
+        }])->orderBy('updated_at', 'desc')->paginate(20);
 
         $user_id = Auth::User()->id;
         foreach ($posts as $post) {
@@ -63,8 +63,8 @@ class PostController extends Controller
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path = $request->file('image')->getRealPath();
-            $mime_type = $request->file('image')->getClientMimeType();
-            $destination_path = 'posts/' . $post->id . $mime_type;
+            $mime_type = $request->file('image')->getClientOriginalExtension();
+            $destination_path = 'posts/' . $post->id . '.' . $mime_type;
             \Storage::put(
                 $destination_path,
                 file_get_contents($path)
@@ -137,5 +137,14 @@ class PostController extends Controller
         $post->likeByUsers()->detach(Auth::User()->id);
 
         return response()->json(1);
+    }
+
+    public function getlike($id)
+    {
+        $post = Post::find($id);
+
+        $post_count = $post->likeByUsers()->count();
+
+        return  response()->json($post_count);
     }
 }

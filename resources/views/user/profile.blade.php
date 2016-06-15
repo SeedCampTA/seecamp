@@ -19,7 +19,7 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="row">
               <div class="col-xs-12 profile-image-panel">
-                <img src="data:image/jpeg;base64,{{$user->image}}" alt="profile picture">
+                <img src="{{$user->image}}" alt="profile picture">
               </div>
             </div>
             <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">

@@ -27,8 +27,8 @@ class ProfileController extends Controller
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path = $request->file('image')->getRealPath();
-            $mime_type = $request->file('image')->getClientMimeType();
-            $destination_path = 'profiles/' . $user->id . $mime_type;
+            $mime_type = $request->file('image')->getClientOriginalExtension();
+            $destination_path = 'profiles/' . $user->id . '.' . $mime_type;
             Storage::put(
                 $destination_path,
                 file_get_contents($path)

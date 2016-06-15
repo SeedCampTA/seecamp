@@ -1,6 +1,30 @@
+.upload-icon {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 4px 7px;
+    border-radius: 2px;
+    cursor: pointer;
 
-.feed-img-profile {
+}
 
+.icon-gray {
+    color: #848484 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.post-block {
+    padding:14px;
+}
+
+.invis-upload {
+    margin-top: -24px;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99999;
 }
 
 .panel-feed {
@@ -43,4 +67,8 @@
 
 .action-post {
     padding: 10px 0 10px 5px;
+}
+
+.btn-like {
+	border: 1px solid #ccc;
 }

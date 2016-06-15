@@ -42,6 +42,12 @@ function commentPost(button, id)
     }
 };
 
+function commentPostEnter(id) {
+    if (event.keyCode == 13) {
+        commentPost(id);
+    }
+}
+
 function unlikePost(post_id)
 {
     csrf = $('meta[name="csrf-param"]').attr('content');
@@ -53,7 +59,10 @@ function unlikePost(post_id)
         },
         method: 'PUT',
         success: function(jsonData) {
-            alert(jsonData);
+            getLike(post_id);
+            $('#post_' + post_id + ' .btn-like').toggleClass('btn-seedcamp');
+            $('#post_' + post_id + ' .btn-like').text('+1');
+            $('#post_' + post_id + ' .btn-like').attr('onClick', 'likePost(' + post_id + ')');
         },
         error: function(jsonData) {
             alert(jsonData);
@@ -72,10 +81,48 @@ function likePost(post_id)
         },
         method: 'PUT',
         success: function(jsonData) {
-            alert(jsonData);
+            getLike(post_id);
+            $('#post_' + post_id + ' .btn-like').toggleClass('btn-seedcamp');
+            $('#post_' + post_id + ' .btn-like').text('-1');
+            $('#post_' + post_id + ' .btn-like').attr('onClick', 'unlikePost(' + post_id + ')');
         },
         error: function(jsonData) {
             alert(jsonData);
         }
     });
+};
+
+function getLike(post_id)
+{
+    $.ajax({
+        url: '/posts/' + post_id + '/like/',
+        headers: {
+            'X-CSRF-TOKEN': csrf,
+        },
+        method: 'GET',
+        success: function(jsonData) {
+            $('#like_' + post_id).html(jsonData);
+        },
+        error: function(jsonData) {
+            alert(jsonData);
+        }
+    });
+}
+
+var uploadPhoto = function(element) {
+    var fullPath = element.value;
+    var label = $("#upload-label");
+
+    if (fullPath) {
+        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        var filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+            filename = filename.substring(1);
+        }
+
+        label.html(filename);
+        if (!label.hasClass('label label-primary')){
+            label.toggleClass('label label-primary');
+        }
+    }
 };
