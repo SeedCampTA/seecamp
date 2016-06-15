@@ -84,7 +84,7 @@
             <ul class="list-group" id="comment-section-{{ $post->id }}">
                         @foreach ($post->comments as $comment)
                             <li class="list-group-item">
-                        <img class="user-profile-pic-comment pull-left img-circle" src="data:image/jpeg;base64,{{ $comment->user['image'] }}" alt="" height="35" width="35">
+                        <img class="user-profile-pic-comment pull-left img-circle" src="{{ $comment->user['image'] }}" alt="" height="35" width="35">
                         <p class="post-owner">{{ ucfirst($comment->user['firstname']) . ' ' . ucfirst($comment->user['lastname']) }}
                             <small class="date">
                                 {{ $comment->updated_at->diffForHumans() }}
