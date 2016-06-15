@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $posts = Post::with(['comments' => function ($query) {
             $query->orderBy('updated_at', 'desc');
-        }])->orderBy('updated_at', 'desc')->take(20)->get();
+        }])->orderBy('updated_at', 'desc')->paginate(20);
 
         $user_id = Auth::User()->id;
         foreach ($posts as $post) {

@@ -37,7 +37,7 @@
             </div>
 
             @foreach ($posts as $post)
-    <div class="panel panel-info" id="post_{{ $post->id }}">
+            <div class="panel panel-info" id="post_{{ $post->id }}">
                 <div class="panel-heading panel-feed">
                     <div class="col-xs-1 clear-padding">
                         <a href="#" class="feed-profile">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <hr>
-            <p><span id="like_{{ $post->id }}">{{ $post->likeByUsers()->count() }}</span> Likes</p>
+                    <p><span id="like_{{ $post->id }}">{{ $post->likeByUsers()->count() }}</span> Likes</p>
                     <div class="input-group">
                         <div class="input-group-btn">
                             @if ($post->likeable)
@@ -92,6 +92,7 @@
                 </div>
             </div>
             @endforeach
+            @include('post.pagination', ['paginator' => $posts])
         </div>
     </div>
 </div>
