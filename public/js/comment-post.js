@@ -44,7 +44,7 @@ function commentPost(button, id)
 
 function commentPostEnter(id) {
     if (event.keyCode == 13) {
-        commentPost(id);
+        commentPost($('#btn_comment_' + id), id);
     }
 }
 

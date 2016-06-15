@@ -73,7 +73,7 @@
                                     -1
                                 </button>
                             @endif
-                    <button class="btn btn-default" data-loading-text="posting..." onclick="commentPost(this, {{ $post->id }})">
+                    <button class="btn btn-default" data-loading-text="posting..." id="btn_comment_{{ $post->id }}" onclick="commentPost(this, {{ $post->id }})">
                                 <i class="glyphicon glyphicon-comment"></i>
                             </button>
                         </div>
