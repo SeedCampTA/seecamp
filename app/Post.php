@@ -24,4 +24,9 @@ class Post extends Model
     {
         return $this->belongsToMany('App\User', 'likes')->withTimestamps();
     }
+
+    public function getImageAttribute($value)
+    {
+        return base64_encode(\Storage::get($value));
+    }
 }

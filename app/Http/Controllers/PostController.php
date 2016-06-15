@@ -62,10 +62,15 @@ class PostController extends Controller
         $post = Auth::User()->posts()->create($data);
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $path = $request->file('image')->getRealPath();
+            $mime_type = $request->file('image')->getClientMimeType();
+            $destination_path = 'posts/' . $post->id . $mime_type;
             Storage::put(
-                'posts/'.$post->id,
-                file_get_contents($request->file('image')->getRealPath())
+                $destination_path,
+                file_get_contents($path)
             );
+            $post->image = $destination_path;
+            $post->save();
         }
 
         return response()->json($post, 201);
