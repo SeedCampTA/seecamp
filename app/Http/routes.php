@@ -32,7 +32,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('posts.comments', 'CommentController', [
         'parameters' => 'singular'
     ]);
-
-    Route::get('/like', 'HomeController@like');
 });
 
