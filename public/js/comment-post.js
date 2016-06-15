@@ -26,8 +26,8 @@ function unlikePost(post_id)
         },
         method: 'PUT',
         success: function(jsonData) {
-            alert(jsonData);
-            getLike();
+            // alert(jsonData);
+            getLike(post_id);
         },
         error: function(jsonData) {
             alert(jsonData);
@@ -46,8 +46,8 @@ function likePost(post_id)
         },
         method: 'PUT',
         success: function(jsonData) {
-            alert(jsonData);
-            getLike();
+            // alert(jsonData);
+            getLike(post_id);
         },
         error: function(jsonData) {
             alert(jsonData);
