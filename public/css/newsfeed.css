@@ -45,7 +45,7 @@
 	font-weight: normal;
 }
 
-.user {
+.post-owner {
 	color: #365899;
 	font-weight: bold;
 	font-family: sans-serif;
@@ -56,7 +56,12 @@
 
 }
 
-.user-profile-sm {
+.user-profile-pic {
+	margin-right: 0px;
+	margin-top: 5px;
+}
+
+.user-profile-pic-comment {
 	margin-right: 15px;
 }
 
