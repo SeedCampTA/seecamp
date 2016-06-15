@@ -11,19 +11,25 @@
 @section('content')
 <div class="col-sm-5">
     <div class="well well-sm">
-        <form class="form-horizontal" role="form">
-            <h4>What's On Your Mind ?</h4>
+        <form class="form-horizontal" role="form" action="{{ action('PostController@store') }}"  enctype="multipart/form-data" method="post">
+        {{-- csrf token --}}
+        {{ csrf_field() }}
+
             <div class="form-group" style="padding:14px;">
-                <textarea class="form-control" placeholder="Update your status"></textarea>
+                <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
+            <div class="action-post">
+                <div class="pull-left">
+                    <a href="">
+                        <i class="glyphicon glyphicon-camera"></i>
+                    </a>
+                </div>
+
+                <div class="pull-right">
+                    <button class="btn btn-primary pull-right" type="submit">Post</button>
+                </div>
             </div>
 
-            <button class="btn btn-primary pull-right" type="button">Post</button>
-
-            <ul class="list-inline">
-                <a href="">
-                    <i class="glyphicon glyphicon-camera"></i>
-                </a>
-            </ul>
+            </div>
         </form>
     </div>
 

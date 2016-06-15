@@ -59,13 +59,14 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $req = $request->all();
+
         if (!empty($req['image'])) {
             $req['image'] = base64_encode(file_get_contents($req['image']));
         }
         $data = array_filter($req);
         $post = Auth::User()->posts()->create($data);
 
-        return response()->json($post, 201);
+        return redirect(action('PostController@index'));
     }
 
     /**
