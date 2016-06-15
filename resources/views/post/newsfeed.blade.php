@@ -35,7 +35,7 @@
     </div>
 
     @foreach ($posts as $post)
-    <div class="panel panel-info">
+    <div class="panel panel-info" id="post_{{ $post->id }}">
         <div class="panel-heading panel-feed">
             <div class="col-xs-1 clear-padding">
                 <a href="#" class="feed-profile">
@@ -59,15 +59,15 @@
                 </div>
             </div>
             <hr>
-            <p>{{ $post->likeByUsers()->count() }} Likes</p>
+            <p><span id="like_{{ $post->id }}">{{ $post->likeByUsers()->count() }}</span> Likes</p>
             <div class="input-group">
                 <div class="input-group-btn">
                     @if ($post->likeable)
-                        <button class="btn btn-default" onclick="likePost({{ $post->id }})">
+                        <button class="btn btn-default btn-like" onclick="likePost({{ $post->id }})">
                             +1
                         </button>
                     @else
-                        <button class="btn btn-default" onclick="unlikePost({{ $post->id }})">
+                        <button class="btn btn-default btn-seedcamp btn-like" onclick="unlikePost({{ $post->id }})">
                             -1
                         </button>
                     @endif
