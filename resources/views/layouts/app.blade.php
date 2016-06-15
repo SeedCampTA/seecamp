@@ -29,7 +29,7 @@
   @else
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <img id="user-profile-pic" class="user-profile-pic img-circle" src="data:image/jpeg;base64,{{ Auth::user()->image }}" alt="" height="35" width="35"">
+        <img id="user-profile-pic" class="user-profile-pic img-circle" src="{{ Auth::user()->image }}" alt="" height="35" width="35"">
       </li>
       <li class="dropdown">
         <a id="user-profile" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
