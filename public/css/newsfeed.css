@@ -1,6 +1,21 @@
+.upload-icon {
+    border: 1px solid #dedede;
+    padding: 5px;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
 
-.feed-img-profile {
+.post-block {
+    padding:14px;
+}
 
+.invis-upload {
+    margin-top: -24px;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99999;
 }
 
 .panel-feed {

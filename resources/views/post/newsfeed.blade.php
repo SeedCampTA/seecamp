@@ -15,14 +15,12 @@
 
         {{ csrf_field() }}
 
-            <div class="form-group" style="padding:14px;">
+            <div class="form-group post-block">
                 <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
-            <div class="action-post">
+            <div class="action-post row">
                 <div class="pull-left">
-                    <a href="">
-                        <i class="glyphicon glyphicon-camera"></i>
-                    </a>
-                    <input type="file" name="image" style="position:absolute;">
+                    <i class="glyphicon glyphicon-camera upload-icon"></i>
+                    <input type="file" name="image" class="invis-upload">
                 </div>
 
                 <div class="pull-right">
@@ -54,7 +52,6 @@
             <div class="panel-thumbnail">
                 <div class="img-responsive center-block">
                     <img class="img-responsive" src="data:image/jpeg;base64,{{ $post->image }}">
-                    
                 </div>
             </div>
             <hr>
