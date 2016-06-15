@@ -18,13 +18,14 @@
                 {{ csrf_field() }}
 
             <div class="form-group post-block">
-                        <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
-            <div class="action-post row">
+                    <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
+                    <div class="action-post row">
                         <div class="pull-left">
-                    <div class="upload-icon">
-                        <i class="glyphicon glyphicon-camera icon-gray"></i>
-                        <input type="file" name="image" class="invis-upload">
-                    </div>
+                            <div class="upload-icon">
+                                <i class="glyphicon glyphicon-camera icon-gray"></i>
+                                <input type="file" onchange="uploadPhoto(this)" name="image" class="invis-upload">
+                            </div>
+                            <span id="upload-label"></span>
                         </div>
 
                         <div class="pull-right">
@@ -37,11 +38,11 @@
             </div>
 
             @foreach ($posts as $post)
-    <div class="panel panel-info" id="post_{{ $post->id }}">
+            <div class="panel panel-info" id="post_{{ $post->id }}">
                 <div class="panel-heading panel-feed">
                     <div class="col-xs-1 clear-padding">
                         <a href="#" class="feed-profile">
-                          <img src="http://www.bootply.com/assets/example/bg_5.jpg" alt="" class="img-circle">
+                          <img src="{{ $post->user->image }}" alt="" class="img-circle">
                         </a>
                     </div>
 
@@ -60,7 +61,7 @@
                         </div>
                     </div>
                     <hr>
-            <p><span id="like_{{ $post->id }}">{{ $post->likeByUsers()->count() }}</span> Likes</p>
+                    <p><span id="like_{{ $post->id }}">{{ $post->likeByUsers()->count() }}</span> Likes</p>
                     <div class="input-group">
                         <div class="input-group-btn">
                             @if ($post->likeable)
@@ -72,19 +73,23 @@
                                     -1
                                 </button>
                             @endif
-                            <button class="btn btn-default" onclick="commentPost({{ $post->id }})">
+                    <button class="btn btn-default" data-loading-text="posting..." onclick="commentPost(this, {{ $post->id }})">
                                 <i class="glyphicon glyphicon-comment"></i>
                             </button>
                         </div>
 
-                        <input id="comment-message-{{ $post->id }}" type="text" class="form-control" placeholder="Add a comment..">
+                        <input id="comment-message-{{ $post->id }}" type="text" class="form-control" placeholder="Add a comment.." onkeydown="commentPostEnter({{ $post->id }})">
                     </div>
                     <div class="divider"></div>
-                    <ul class="list-group">
+            <ul class="list-group" id="comment-section-{{ $post->id }}">
                         @foreach ($post->comments as $comment)
                             <li class="list-group-item">
-                        <img class="user-profile-sm pull-left img-circle" src="//placehold.it/35x35" alt="" height="35" width="35">
-                        <p class="user">{{ ucfirst($comment->user['firstname']) . ' ' . ucfirst($comment->user['lastname']) }} <small class="date">{{ $comment->updated_at->diffForHumans() }}</small></p>
+                        <img class="user-profile-pic-comment pull-left img-circle" src="{{ $comment->user['image'] }}" alt="" height="35" width="35">
+                        <p class="post-owner">{{ ucfirst($comment->user['firstname']) . ' ' . ucfirst($comment->user['lastname']) }}
+                            <small class="date">
+                                {{ $comment->updated_at->diffForHumans() }}
+                            </small>
+                        </p>
                         <div class="comment container-fluid">{{ $comment->comment }}</div>
                             </li>
                         @endforeach
@@ -92,6 +97,7 @@
                 </div>
             </div>
             @endforeach
+            @include('post.pagination', ['paginator' => $posts])
         </div>
     </div>
 </div>

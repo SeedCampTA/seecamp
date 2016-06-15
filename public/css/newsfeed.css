@@ -1,12 +1,10 @@
-.icon-label {
-    
-}
 .upload-icon {
-    display: block;
+    display: inline-block;
     border: 1px solid #ccc;
     padding: 4px 7px;
     border-radius: 2px;
     cursor: pointer;
+
 }
 
 .icon-gray {
@@ -47,7 +45,7 @@
 	font-weight: normal;
 }
 
-.user {
+.post-owner {
 	color: #365899;
 	font-weight: bold;
 	font-family: sans-serif;
@@ -58,10 +56,23 @@
 
 }
 
-.user-profile-sm {
+.user-profile-pic {
+	margin-right: 0px;
+	margin-top: 5px;
+}
+
+.user-profile-pic-comment {
 	margin-right: 15px;
 }
 
 .action-post {
     padding: 10px 0 10px 5px;
+}
+
+.btn-like, .btn-like:hover {
+	border: 1px solid #ccc;
+}
+
+.well {
+    height: 140px;
 }
