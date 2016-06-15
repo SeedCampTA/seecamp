@@ -68,15 +68,24 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        if (!empty($data['image'])) {
-            $data['image'] = base64_encode(file_get_contents($data['image']));
-        }
-        return User::create([
+        $user = User::create([
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
-            'image' => base64_decode($data['image']),
         ]);
+
+        if (!empty($data['image'])) {
+            $mime_type = request()->file('image')->getClientOriginalExtension();
+            $destination_path = 'profiles/' . $user->id . '.' . $mime_type;
+            \Storage::put(
+                $destination_path,
+                file_get_contents($data['image'])
+            );
+            $user->image = $destination_path;
+            $user->save();
+        }
+
+        return $user;
     }
 }
