@@ -69,6 +69,10 @@
     padding: 10px 0 10px 5px;
 }
 
-.btn-like {
+.btn-like, .btn-like:hover {
 	border: 1px solid #ccc;
+}
+
+.well {
+    height: 140px;
 }
