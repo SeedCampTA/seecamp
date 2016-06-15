@@ -12,5 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/posts');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/profile/edit', 'ProfileController@edit');
+    Route::put('/profile/edit', 'ProfileController@update');
+    Route::post('/posts/upload', 'PostController@store');
+    Route::resource('/posts', 'PostController');
+    Route::put('/posts/{id}/like', 'PostController@like');
+    Route::put('/posts/{id}/unlike', 'PostController@unlike');
+    Route::get('/posts/{id}/like', 'PostController@getlike');
+
+    Route::resource('posts.comments', 'CommentController', [
+        'parameters' => 'singular'
+    ]);
+});
+

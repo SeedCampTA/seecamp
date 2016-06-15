@@ -1,0 +1,91 @@
+.upload-icon {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 4px 7px;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.icon-gray {
+    color: #848484 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.post-block {
+    padding:14px;
+}
+
+.invis-upload {
+    margin-top: -24px;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99999;
+}
+
+.panel-feed {
+	height: 70px;
+}
+
+.feed-profile img {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 20px;
+}
+.feed-username {
+	margin-left: 10px;
+}
+
+.date {
+	color: #90949c;
+	font-weight: normal;
+}
+
+.post-owner {
+	color: #365899;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 12px;
+}
+
+.comment{
+
+}
+
+.user-profile-pic {
+	margin-right: 0px;
+	margin-top: 5px;
+}
+
+.user-profile-pic-comment {
+	margin-right: 15px;
+}
+
+.action-post {
+    padding: 10px 0 10px 5px;
+}
+
+.btn-like, .btn-like:hover {
+	border: 1px solid #ccc;
+}
+
+.btn-seedcamp,
+.btn-seedcamp:active, .btn-seedcamp:focus {
+    background: #ff5800;
+    color: #fff;
+    border: none;
+}
+
+.btn-seedcamp:hover {
+    background: #ff5800;
+    color: #fff;
+    border: none;
+}
+
+.well {
+    height: 140px;
+}

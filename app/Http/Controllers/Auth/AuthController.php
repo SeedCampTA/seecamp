@@ -30,6 +30,9 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $username = 'username';
+
+    protected $redirectAfterLogout = '/login';
     /**
      * Create a new authentication controller instance.
      *
@@ -49,9 +52,11 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|min:6|max:10|unique:users,username',
             'password' => 'required|min:6|confirmed',
+            'firstname' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'image' => 'required|image:jpg,jpeg,png|max:4000',
         ]);
     }
 
@@ -63,10 +68,24 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $user = User::create([
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
         ]);
+
+        if (!empty($data['image'])) {
+            $mime_type = request()->file('image')->getClientOriginalExtension();
+            $destination_path = 'profiles/' . $user->id . '.' . $mime_type;
+            \Storage::put(
+                $destination_path,
+                file_get_contents($data['image'])
+            );
+            $user->image = $destination_path;
+            $user->save();
+        }
+
+        return $user;
     }
 }

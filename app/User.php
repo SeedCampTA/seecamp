@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'password', 'firstname', 'lastname'
     ];
 
     /**
@@ -21,6 +21,30 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
+    public function getImageAttribute($value)
+    {
+        if ($value != null) {
+            $path = preg_split("/\./", $value);
+            $mime_type = end($path);
+            return "data:image/$mime_type;base64," . base64_encode(\Storage::get($value));
+        }
+    }
+
+    public function getFirstnameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getLastnameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }
