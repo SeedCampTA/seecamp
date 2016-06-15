@@ -83,7 +83,7 @@
                     <ul class="list-group">
                         @foreach ($post->comments as $comment)
                             <li class="list-group-item">
-                        <img class="user-profile-sm pull-left img-circle" src="//placehold.it/35x35" alt="" height="35" width="35"">
+                        <img class="user-profile-sm pull-left img-circle" src="//placehold.it/35x35" alt="" height="35" width="35">
                         <p class="user">{{ ucfirst($comment->user['firstname']) . ' ' . ucfirst($comment->user['lastname']) }} <small class="date">{{ $comment->updated_at->diffForHumans() }}</small></p>
                         <div class="comment container-fluid">{{ $comment->comment }}</div>
                             </li>
