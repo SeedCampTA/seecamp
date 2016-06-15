@@ -73,7 +73,7 @@ class PostController extends Controller
             $post->save();
         }
 
-        return response()->json($post, 201);
+        return redirect(action('PostController@index'));
     }
 
     /**

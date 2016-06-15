@@ -27,6 +27,8 @@ class Post extends Model
 
     public function getImageAttribute($value)
     {
-        return base64_encode(\Storage::get($value));
+        if ($value != null) {
+            return base64_encode(\Storage::get($value));
+        }
     }
 }
