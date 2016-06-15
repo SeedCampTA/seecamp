@@ -52,8 +52,7 @@
             <p>{{ $post->msg }}</p>
             <div class="panel-thumbnail">
                 <div class="img-responsive center-block">
-                    <img class="img-responsive" src="http://www.bootply.com/assets/example/bg_5.jpg">
-                    {{ $post->image }}
+                    <img class="img-responsive" src="{{ $post->image }}">
                 </div>
             </div>
             <hr>
