@@ -37,4 +37,14 @@ class User extends Authenticatable
             return "data:image/$mime_type;base64," . base64_encode(\Storage::get($value));
         }
     }
+
+    public function getFirstnameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getLastnameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

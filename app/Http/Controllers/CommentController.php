@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Post;
+use App\Comment;
 use Auth;
 use App\Http\Requests\StoreCommentRequest;
 
@@ -41,7 +42,8 @@ class CommentController extends Controller
     {
         $postModel = Post::find($post);
         $input = array_merge(['user_id' => Auth::user()->id], $request->all());
-        $comment = $postModel->comments()->create($input);
+        $comment_id = $postModel->comments()->create($input)->id;
+        $comment = Comment::find($comment_id);
         return response()->json($comment, 201);
     }
 
