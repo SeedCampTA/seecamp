@@ -20,7 +20,7 @@
 </head>
 <body id="app-layout">
   <nav id="seedcamp-nav" class="navbar navbar-default navbar-static-top">
-  <a id="seedcamp-header" class="navbar-brand" href="{{ url('/') }}">SeedCamp by THiNKNET</a>
+  <a id="seedcamp-header" class="navbar-brand" href="{{ url('/') }}">Social Network by THiNKNET</a>
   @if (Auth::guest())
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{ url('/login') }}">Login</a></li>

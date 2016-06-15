@@ -5,7 +5,6 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Social Network by THiNKNET</div>
         <div class="panel-body">
           <div class="col-xs-offset-4 col-xs-8">
             <img src="images/seedcamp_logo.jpg" alt="logo" class="img-circle">
