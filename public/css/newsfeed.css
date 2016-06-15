@@ -65,3 +65,7 @@
 .action-post {
     padding: 10px 0 10px 5px;
 }
+
+.btn-like {
+	border: 1px solid transparent;
+}
