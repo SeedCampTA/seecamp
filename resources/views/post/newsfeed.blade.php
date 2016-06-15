@@ -18,13 +18,14 @@
                 {{ csrf_field() }}
 
             <div class="form-group post-block">
-                        <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
-            <div class="action-post row">
+                    <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
+                    <div class="action-post row">
                         <div class="pull-left">
-                    <div class="upload-icon">
-                        <i class="glyphicon glyphicon-camera icon-gray"></i>
-                        <input type="file" name="image" class="invis-upload">
-                    </div>
+                            <div class="upload-icon">
+                                <i class="glyphicon glyphicon-camera icon-gray"></i>
+                                <input type="file" onchange="uploadPhoto(this)" name="image" class="invis-upload">
+                            </div>
+                            <span id="upload-label"></span>
                         </div>
 
                         <div class="pull-right">
