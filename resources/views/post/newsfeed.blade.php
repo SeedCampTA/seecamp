@@ -54,8 +54,7 @@
             <p>{{ $post->msg }}</p>
             <div class="panel-thumbnail">
                 <div class="img-responsive center-block">
-                    <img class="img-responsive" src="data:image/jpeg;base64,{{ $post->image }}">
-                    
+                    <img class="img-responsive" src="{{ $post->image }}">
                 </div>
             </div>
             <hr>
