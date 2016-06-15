@@ -37,6 +37,9 @@
           <li><a href="{{ url('/login') }}">Login</a></li>
           <li><a href="{{ url('/register') }}">Register</a></li>
         @else
+          <li>
+            <img id="user-profile-pic" class="user-profile-pic img-circle" src="{{ Auth::user()->image }}" alt="" height="35" width="35">
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->username }}</a>
             <ul class="dropdown-menu">
