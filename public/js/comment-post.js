@@ -27,6 +27,7 @@ function unlikePost(post_id)
         method: 'PUT',
         success: function(jsonData) {
             alert(jsonData);
+            getLike();
         },
         error: function(jsonData) {
             alert(jsonData);
@@ -46,9 +47,28 @@ function likePost(post_id)
         method: 'PUT',
         success: function(jsonData) {
             alert(jsonData);
+            getLike();
         },
         error: function(jsonData) {
             alert(jsonData);
         }
     });
 };
+
+function getLike(post_id)
+{
+    $.ajax({
+        url: '/posts/' + post_id + '/like/',
+        headers: {
+            'X-CSRF-TOKEN': csrf,
+        },
+        method: 'GET',
+        success: function(jsonData) {
+            alert(jsonData);
+            
+        },
+        error: function(jsonData) {
+            alert(jsonData);
+        }
+    });
+}
