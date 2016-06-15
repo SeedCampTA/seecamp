@@ -6,7 +6,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="col-xs-offset-4 col-xs-8">
+          <div class="col-md-offset-4 col-md-8 col-sm-offset-3 col-sm-9 col-xs-offset-1 col-xs-11">
             <img src="images/seedcamp_logo.jpg" alt="logo" class="img-circle">
           </div>
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
