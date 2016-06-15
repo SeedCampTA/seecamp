@@ -35,7 +35,7 @@
     </div>
 
     @foreach ($posts as $post)
-    <div class="panel panel-info">
+    <div class="panel panel-info" id="post_{{ $post->id }}">
         <div class="panel-heading panel-feed">
             <div class="col-xs-1 clear-padding">
                 <a href="#" class="feed-profile">
@@ -44,7 +44,8 @@
             </div>
 
             <div class="col-xs-6 feed-username">
-            {{ $post->user->username }}
+                <p class="text-left">{{ ucfirst($post->user->firstname) . ' ' . ucfirst($post->user->lastname) }}</p>
+                <small class="text-left date">{{ $post->updated_at->diffForHumans() }}</small>
             </div>
         </div>
 
@@ -57,15 +58,15 @@
                 </div>
             </div>
             <hr>
-            <p>{{ $post->likeByUsers()->count() }} Likes</p>
+            <p><span id="like_{{ $post->id }}">{{ $post->likeByUsers()->count() }}</span> Likes</p>
             <div class="input-group">
                 <div class="input-group-btn">
                     @if ($post->likeable)
-                        <button class="btn btn-default" onclick="likePost({{ $post->id }})">
+                        <button class="btn btn-default btn-like" onclick="likePost({{ $post->id }})">
                             +1
                         </button>
                     @else
-                        <button class="btn btn-default" onclick="unlikePost({{ $post->id }})">
+                        <button class="btn btn-default btn-seedcamp btn-like" onclick="unlikePost({{ $post->id }})">
                             -1
                         </button>
                     @endif
@@ -80,9 +81,9 @@
             <ul class="list-group">
                 @foreach ($post->comments as $comment)
                     <li class="list-group-item">
-                        <img src="//placehold.it/35x35" alt="" class="pull-left img-circle height="35" width="35"">
-                        <p>{{ $comment->comment }}</p>
-                        <small>{{ "10:28pm" }}</small>
+                        <img class="user-profile-sm pull-left img-circle" src="//placehold.it/35x35" alt="" height="35" width="35"">
+                        <p class="user">{{ ucfirst($comment->user['firstname']) . ' ' . ucfirst($comment->user['lastname']) }} <small class="date">{{ $comment->updated_at->diffForHumans() }}</small></p>
+                        <div class="comment container-fluid">{{ $comment->comment }}</div>
                     </li>
                 @endforeach
             </ul>
