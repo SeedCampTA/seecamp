@@ -32,8 +32,8 @@
     border: none;
 }
 
-.app-layout {
-    padding-top: 50px;
+#app-layout {
+    padding-top: 100px;
 }
 
 
