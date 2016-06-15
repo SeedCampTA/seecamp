@@ -73,6 +73,19 @@
 	border: 1px solid #ccc;
 }
 
+.btn-seedcamp,
+.btn-seedcamp:active, .btn-seedcamp:focus {
+    background: #ff5800;
+    color: #fff;
+    border: none;
+}
+
+.btn-seedcamp:hover {
+    background: #ff5800;
+    color: #fff;
+    border: none;
+}
+
 .well {
     height: 140px;
 }
