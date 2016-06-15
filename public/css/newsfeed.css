@@ -67,3 +67,7 @@
 .btn-like {
 	border: 1px solid #ccc;
 }
+
+.well {
+    height: 140px;
+}
