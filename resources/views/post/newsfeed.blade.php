@@ -51,7 +51,7 @@
                 </div>
             </div>
             <hr>
-            <p>45 Likes</p>
+            <p>{{ $post->likeByUsers()->count() }} Likes</p>
             <div class="input-group">
                 <div class="input-group-btn">
                     @if ($post->likeable)
