@@ -52,7 +52,6 @@
     </div>
   </nav>
   @yield('content')
-  {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
   <script src="{{ asset('js/jquery-2.0.0.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/scripts.js') }}"></script>
