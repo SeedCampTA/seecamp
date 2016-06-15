@@ -62,20 +62,20 @@ return [
             'bucket' => 'your-bucket',
         ],
 
-    ],
+        'ftp' => [
+            'driver'   => 'ftp',
+            'host'     => 'localhost',
+            'username' => 'image',
+            'password' => '11223344',
 
-    'ftp' => [
-        'driver'   => 'ftp',
-        'host'     => 'localhost',
-        'username' => 'image',
-        'password' => '11223344',
+            // Optional FTP Settings...
+            // 'port'     => 21,
+            // 'root'     => '',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 30,
+        ],
 
-        // Optional FTP Settings...
-        // 'port'     => 21,
-        // 'root'     => '',
-        // 'passive'  => true,
-        // 'ssl'      => true,
-        // 'timeout'  => 30,
     ],
 
 ];
