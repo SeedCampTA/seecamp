@@ -17,14 +17,14 @@
 
                 {{ csrf_field() }}
 
-                    <div class="form-group" style="padding:14px;">
+            <div class="form-group post-block">
                         <textarea class="form-control" placeholder="Update your status" name="msg"></textarea>
-                    <div class="action-post">
+            <div class="action-post row">
                         <div class="pull-left">
-                            <a href="">
-                                <i class="glyphicon glyphicon-camera"></i>
-                            </a>
-                            <input type="file" name="image" style="position:absolute;">
+                    <div class="upload-icon">
+                        <i class="glyphicon glyphicon-camera icon-gray"></i>
+                        <input type="file" name="image" class="invis-upload">
+                    </div>
                         </div>
 
                         <div class="pull-right">
