@@ -1,7 +1,18 @@
-.upload-icon {
-    border: 1px solid #dedede;
-    padding: 5px;
+.icon-label {
+    
 }
+.upload-icon {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 4px 7px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.icon-gray {
+    color: #848484 !important;
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
