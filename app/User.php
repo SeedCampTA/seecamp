@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'firstname', 'lastname', 'image',
+        'username', 'password', 'firstname', 'lastname'
     ];
 
     /**
@@ -27,5 +27,12 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany('App\Post');
+    }
+
+    public function getImageAttribute($value)
+    {
+        if ($value != null) {
+            return base64_encode(\Storage::get($value));
+        }
     }
 }

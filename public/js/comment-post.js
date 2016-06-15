@@ -18,3 +18,41 @@ function commentPost(id)
         });
     }
 };
+
+function unlikePost(post_id)
+{
+    csrf = $('meta[name="csrf-param"]').attr('content');
+
+    $.ajax({
+        url: '/posts/' + post_id + '/unlike/',
+        headers: {
+            'X-CSRF-TOKEN': csrf,
+        },
+        method: 'PUT',
+        success: function(jsonData) {
+            alert(jsonData);
+        },
+        error: function(jsonData) {
+            alert(jsonData);
+        }
+    });
+};
+
+function likePost(post_id)
+{
+    csrf = $('meta[name="csrf-param"]').attr('content');
+
+    $.ajax({
+        url: '/posts/' + post_id + '/like/',
+        headers: {
+            'X-CSRF-TOKEN': csrf,
+        },
+        method: 'PUT',
+        success: function(jsonData) {
+            alert(jsonData);
+        },
+        error: function(jsonData) {
+            alert(jsonData);
+        }
+    });
+};

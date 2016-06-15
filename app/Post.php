@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-	protected $guarded = ['id', 'user_id'];
+	protected $guarded = ['id', 'user_id', 'image'];
 
 	protected $with = ['user', 'likeByUsers'];
 
@@ -23,5 +23,12 @@ class Post extends Model
     public function likeByUsers()
     {
         return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+    }
+
+    public function getImageAttribute($value)
+    {
+        if ($value != null) {
+            return base64_encode(\Storage::get($value));
+        }
     }
 }
