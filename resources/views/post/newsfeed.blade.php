@@ -12,7 +12,7 @@
 <div class="col-sm-5">
     <div class="well well-sm">
         <form class="form-horizontal" role="form" action="{{ action('PostController@store') }}"  enctype="multipart/form-data" method="post">
-        {{-- csrf token --}}
+
         {{ csrf_field() }}
 
             <div class="form-group" style="padding:14px;">
@@ -22,6 +22,7 @@
                     <a href="">
                         <i class="glyphicon glyphicon-camera"></i>
                     </a>
+                    <input type="file" name="image" style="position:absolute;">
                 </div>
 
                 <div class="pull-right">
