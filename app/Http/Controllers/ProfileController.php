@@ -8,6 +8,9 @@ use App\Http\Requests;
 
 use App\User;
 
+use Auth;
+use Storage;
+
 class ProfileController extends Controller
 {
 
@@ -18,12 +21,21 @@ class ProfileController extends Controller
 
     public function update(\App\Http\Requests\StoreProfileRequest $request)
     {
-        $req = $request->all();
-        if (!empty($req['image'])) {
-            $req['image'] = base64_encode(file_get_contents($req['image']));
+        $data = $request->all();
+        $user = Auth::user();
+        $user->update($data);
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $path = $request->file('image')->getRealPath();
+            $mime_type = $request->file('image')->getClientMimeType();
+            $destination_path = 'profiles/' . $user->id . $mime_type;
+            Storage::put(
+                $destination_path,
+                file_get_contents($path)
+            );
+            $user->image = $destination_path;
+            $user->save();
         }
-        $data = array_filter($req);
-        $user = \Auth::user()->update($data);
 
         $updateMsg = 'Update profile completed';
 
