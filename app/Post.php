@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-	protected $guarded = ['id', 'user_id', 'img'];
+	protected $guarded = ['id', 'user_id', 'image'];
 
 	protected $with = ['user', 'likeByUsers'];
 
