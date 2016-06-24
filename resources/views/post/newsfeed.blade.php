@@ -5,7 +5,7 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/comment-post.js') }}"></script>
+<script src="{{ asset('js/newsfeed.js') }}"></script>
 @endsection
 
 @section('content')
@@ -38,9 +38,9 @@
             <div class="panel panel-info" id="post_{{ $post->id }}">
                 <div class="panel-heading panel-feed">
                     <div class="col-xs-1 clear-padding">
-                        <a href="#" class="feed-profile">
-                          <img src="{{ $post->user->image }}" alt="profile-image-{{ $post->user->firstname }}" class="img-circle">
-                        </a>
+                        <div class="feed-profile">
+                          <img src="{{ $post->user->image }}" alt="profile image {{ $post->user->firstname }}" class="img-circle">
+                        </div>
                     </div>
 
                     <div class="col-xs-6 feed-username">

@@ -62,7 +62,7 @@ function unlikePost(post_id)
         success: function(jsonData) {
             $('#post_' + post_id + ' .btn-like').text('+1');
             $('#post_' + post_id + ' .btn-like').toggleClass('btn-seedcamp');
-            getLike(post_id);
+            $('#like_' + post_id).html(jsonData);
             $('#post_' + post_id + ' .btn-like').attr('onClick', 'likePost(' + post_id + ')');
         },
         error: function(jsonData) {
@@ -84,7 +84,7 @@ function likePost(post_id)
         success: function(jsonData) {
             $('#post_' + post_id + ' .btn-like').text('-1');
             $('#post_' + post_id + ' .btn-like').toggleClass('btn-seedcamp');
-            getLike(post_id);
+            $('#like_' + post_id).html(jsonData);
             $('#post_' + post_id + ' .btn-like').attr('onClick', 'unlikePost(' + post_id + ')');
         },
         error: function(jsonData) {
@@ -92,23 +92,6 @@ function likePost(post_id)
         }
     });
 };
-
-function getLike(post_id)
-{
-    $.ajax({
-        url: '/posts/' + post_id + '/like/',
-        headers: {
-            'X-CSRF-TOKEN': csrf,
-        },
-        method: 'GET',
-        success: function(jsonData) {
-            $('#like_' + post_id).html(jsonData);
-        },
-        error: function(jsonData) {
-            alert(jsonData);
-        }
-    });
-}
 
 var uploadPhoto = function(element) {
     var fullPath = element.value;

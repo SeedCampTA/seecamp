@@ -26,7 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('posts', 'PostController');
     Route::put('posts/{id}/like', 'PostController@like');
     Route::put('posts/{id}/unlike', 'PostController@unlike');
-    Route::get('posts/{id}/like', 'PostController@getLike');
 
     Route::resource('posts.comments', 'CommentController', [
         'parameters' => 'singular'
