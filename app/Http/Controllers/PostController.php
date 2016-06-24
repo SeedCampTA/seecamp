@@ -18,9 +18,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['comments' => function ($query) {
-            $query->orderBy('updated_at', 'desc');
-        }])->orderBy('updated_at', 'desc')->paginate(20);
+        $posts = Post::with([
+                'comments' => function ($query) {
+                    $query->orderBy('updated_at', 'desc');
+                }
+            ])
+            ->orderBy('updated_at', 'desc')
+            ->paginate(20);
 
         $user_id = Auth::User()->id;
         foreach ($posts as $post) {
