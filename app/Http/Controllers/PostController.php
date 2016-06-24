@@ -143,7 +143,7 @@ class PostController extends Controller
         return response()->json(1);
     }
 
-    public function getlike($id)
+    public function getLike($id)
     {
         $post = Post::find($id);
 
