@@ -131,7 +131,7 @@ class PostController extends Controller
 
         $post->likeByUsers()->attach(Auth::User()->id);
 
-        return response()->json(1);
+        return response()->json($post->likeByUsers()->count());
     }
 
     public function unlike($id)
@@ -140,15 +140,7 @@ class PostController extends Controller
 
         $post->likeByUsers()->detach(Auth::User()->id);
 
-        return response()->json(1);
+        return response()->json($post->likeByUsers()->count());
     }
 
-    public function getLike($id)
-    {
-        $post = Post::find($id);
-
-        $post_count = $post->likeByUsers()->count();
-
-        return  response()->json($post_count);
-    }
 }
