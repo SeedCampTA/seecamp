@@ -8,18 +8,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-    @if(!empty(session('updateMsg')))
+    @unless(empty(session('updateMsg')))
       <div class="alert alert-success" role="alert">{{ session('updateMsg') }}</div>
-    @endif
+    @endunless
       <div class="panel panel-default">
         <div class="panel-heading">Edit Profile</div>
         <div class="panel-body">
-          <form class="form-horizontal" role="form" method="post" action="{{ url('/profile/edit') }}" enctype="multipart/form-data">
+          <form class="form-horizontal" role="form" method="post" action="{{ action('ProfileController@update') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <input type="hidden" name="_method" value="PUT">
             <div class="row">
               <div class="col-xs-12 profile-image-panel">
-                <img src="{{$user->image}}" alt="profile picture">
+                <img src="{{ $user->image }}" alt="profile picture" width="100%">
               </div>
             </div>
             <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
