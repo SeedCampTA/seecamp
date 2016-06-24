@@ -17,17 +17,16 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/profile/edit', 'Auth\AuthController@edit');
-    Route::put('/profile/edit', 'Auth\AuthController@update');
-    Route::post('/posts/upload', 'PostController@store');
-    Route::resource('/posts', 'PostController');
-    Route::put('/posts/{id}/like', 'PostController@like');
-    Route::put('/posts/{id}/unlike', 'PostController@unlike');
-    Route::get('/posts/{id}/like', 'PostController@getlike');
+    Route::get('profile/edit', 'Auth\AuthController@edit');
+    Route::put('profile', 'Auth\AuthController@update');
+    Route::resource('posts', 'PostController');
+    Route::put('posts/{id}/like', 'PostController@like');
+    Route::put('posts/{id}/unlike', 'PostController@unlike');
+    Route::get('posts/{id}/like', 'PostController@getLike');
 
     Route::resource('posts.comments', 'CommentController', [
         'parameters' => 'singular'
