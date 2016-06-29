@@ -64,7 +64,7 @@ return [
 
         'ftp' => [
             'driver'   => 'ftp',
-            'host'     => 'localhost',
+            'host'     => '172.16.20.114',
             'username' => 'image',
             'password' => '11223344',
 

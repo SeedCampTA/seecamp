@@ -54,10 +54,11 @@
                 <div class="panel-body">
                     <div class="clearfix"></div>
                     <p>{{ $post->msg }}</p>
-
                     <div class="panel-thumbnail">
                         <div class="img-responsive center-block">
+                            @if (!empty($post->image))
                             <img class="img-responsive" src="{{ $post->image }}">
+                            @endif
                         </div>
                     </div>
                     <hr>
