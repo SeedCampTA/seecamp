@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 'ftp',
+    'default' => env('FILE_SYSTEM', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,9 +64,9 @@ return [
 
         'ftp' => [
             'driver'   => 'ftp',
-            'host'     => '172.16.20.114',
-            'username' => 'image',
-            'password' => '11223344',
+            'host'     => env('FTP_HOST', ''),
+            'username' => env('FTP_USER', ''),
+            'password' => env('FTP_PASSWORD', ''),
 
             // Optional FTP Settings...
             // 'port'     => 21,
