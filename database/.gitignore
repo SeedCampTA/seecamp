@@ -2,6 +2,8 @@
 vendor/
 node_modules/
 bootstrap/cache/
+storage/framework/views/*
+storage/framework/sessions/*
 .env.*.php
 .env.php
 .env
