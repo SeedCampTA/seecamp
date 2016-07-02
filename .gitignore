@@ -1,5 +1,6 @@
 /vendor
 /node_modules
+/storage/framework/sessions/*
 /storage/framework/views/*
 Homestead.yaml
 Homestead.json
