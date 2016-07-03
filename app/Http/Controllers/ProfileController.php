@@ -1,15 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
-use App\User;
-
-use Auth;
-use Storage;
 
 class ProfileController extends Controller
 {
@@ -22,14 +15,14 @@ class ProfileController extends Controller
     public function update(\App\Http\Requests\StoreProfileRequest $request)
     {
         $data = $request->all();
-        $user = Auth::user();
+        $user = \Auth::user();
         $user->update($data);
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path = $request->file('image')->getRealPath();
             $mime_type = $request->file('image')->getClientOriginalExtension();
             $destination_path = 'profiles/' . $user->id . '.' . $mime_type;
-            Storage::put(
+            \Storage::put(
                 $destination_path,
                 file_get_contents($path)
             );
