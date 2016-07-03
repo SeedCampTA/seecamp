@@ -21,14 +21,14 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="row">
               <div class="col-xs-12 profile-image-panel">
-                <img src="" alt="profile picture" class="profile-image">
+                <img src="{{ $user->image }}" alt="profile picture" class="profile-image">
               </div>
             </div>
             <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
               <label for="firstname" class="col-md-4 control-label">First Name</label>
 
               <div class="col-md-6">
-                <input id="firstname" type="firstname" class="form-control" name="firstname" value="">
+                <input id="firstname" type="firstname" class="form-control" name="firstname" value="{{ $user->firstname }}">
 
                 @if ($errors->has('firstname'))
                   <span class="help-block">
@@ -42,7 +42,7 @@
               <label for="lastname" class="col-md-4 control-label">Last Name</label>
 
               <div class="col-md-6">
-                <input id="lastname" type="lastname" class="form-control" name="lastname" value="">
+                <input id="lastname" type="lastname" class="form-control" name="lastname" value="{{ $user->lastname }}">
 
                 @if ($errors->has('lastname'))
                   <span class="help-block">
