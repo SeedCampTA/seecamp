@@ -8,9 +8,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-    @unless(empty(session('updateMsg')))
-      <div class="alert alert-success" role="alert">{{ session('updateMsg') }}</div>
-    @endunless
+
+
+
       <div class="panel panel-default">
         <div class="panel-heading">Edit Profile</div>
         <div class="panel-body">
@@ -22,45 +22,30 @@
                 <img src="{{ $user->image }}" alt="profile picture" class="profile-image">
               </div>
             </div>
-            <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
+            <div class="form-group">
               <label for="firstname" class="col-md-4 control-label">First Name</label>
 
               <div class="col-md-6">
-                <input id="firstname" type="firstname" class="form-control" name="firstname" value="{{ $user->firstname }}">
+                <input id="firstname" type="firstname" class="form-control" name="firstname" value="">
 
-                @if ($errors->has('firstname'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('firstname') }}</strong>
-                  </span>
-                @endif
               </div>
             </div>
 
-            <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
+            <div class="form-group">
               <label for="lastname" class="col-md-4 control-label">Last Name</label>
 
               <div class="col-md-6">
-                <input id="lastname" type="lastname" class="form-control" name="lastname" value="{{ $user->lastname }}">
+                <input id="lastname" type="lastname" class="form-control" name="lastname" value="">
 
-                @if ($errors->has('lastname'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('lastname') }}</strong>
-                  </span>
-                @endif
               </div>
             </div>
 
-            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+            <div class="form-group">
               <label for="image" class="col-md-4 control-label">Profile Image</label>
 
               <div class="col-md-6">
                 <input id="image" type="file" class="form-control" name="image">
 
-                @if ($errors->has('image'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('image') }}</strong>
-                  </span>
-                @endif
               </div>
             </div>
 
