@@ -21,5 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/edit', 'ProfileController@edit');
+    Route::put('/profile', 'ProfileController@update');
 });
 
