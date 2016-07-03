@@ -16,9 +16,8 @@
       <div class="panel panel-default">
         <div class="panel-heading">Edit Profile</div>
         <div class="panel-body">
-          <form class="form-horizontal" role="form" method="post" action="{{ action('ProfileController@update') }}" enctype="multipart/form-data">
+          <form class="form-horizontal" role="form" method="" action="{{ action('ProfileController@update') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
-            <input type="hidden" name="_method" value="PUT">
             <div class="row">
               <div class="col-xs-12 profile-image-panel">
                 <img src="{{ $user->image }}" alt="profile picture" class="profile-image">
