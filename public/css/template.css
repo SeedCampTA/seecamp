@@ -26,6 +26,13 @@
     border: none;
 }
 
+
+.user-profile-pic {
+    margin-right: 0px;
+    margin-top: 7px;
+    background:#fff;
+}
+
 .btn-seedcamp:hover {
     background: #ff4A02;
     color: #fff;
